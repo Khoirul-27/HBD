@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blooming Wishes ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:
+        radial-gradient(circle at 50% 30%, #fff 0%, #fff8f5 45%, #fce5dc 100%);
+    color: #734653;
+    font-family: "Playfair Display", serif;
+    overflow-x: hidden;
+}
+
+/* =========================
+   HALAMAN PEMBUKA
+========================= */
+
+.opening {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.opening-text {
+    position: absolute;
+    top: 17%;
+    font-size: 14px;
+    font-style: italic;
+    color: #b97882;
+    letter-spacing: 1px;
+}
+
+.heart-button {
+    width: 90px;
+    height: 90px;
+    background: #ed7391;
+    transform: rotate(-45deg);
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 35px rgba(237, 115, 145, .5);
+    animation: beat 1.4s infinite;
+}
+
+.heart-button::before,
+.heart-button::after {
+    content: "";
+    width: 90px;
+    height: 90px;
+    background: #ed7391;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart-button::before {
+    top: -45px;
+    left: 0;
+}
+
+.heart-button::after {
+    top: 0;
+    left: 45px;
+}
+
+@keyframes beat {
+    0%,100% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-45deg) scale(1.12);
+    }
+}
+
+.opening-bottom {
+    position: absolute;
+    bottom: 12%;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #a8757c;
+}
+
+
+/* =========================
+   WEBSITE UTAMA
+========================= */
+
+.main {
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 80px;
+}
+
+.main.active {
+    display: block;
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* NAVBAR */
+
+.nav {
+    width: 100%;
+    padding: 18px 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #9b646d;
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   BAGIAN BIRTHDAY
+========================= */
+
+.birthday {
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 60px 10%;
+}
+
+.birthday-text {
+    background: rgba(255,255,255,.75);
+    padding: 35px;
+    width: 390px;
+    box-shadow: 0 15px 40px rgba(150,80,80,.08);
+}
+
+.small-title {
+    font-size: 12px;
+    font-style: italic;
+    color: #aa747c;
+}
+
+.birthday h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: 55px;
+    line-height: .95;
+    color: #c95d73;
+    margin: 12px 0;
+    font-style: italic;
+}
+
+.birthday p {
+    font-size: 11px;
+    color: #98727a;
+}
+
+
+/* POHON */
+
+.tree {
+    width: 360px;
+    height: 400px;
+    position: relative;
+}
+
+.trunk {
+    width: 25px;
+    height: 210px;
+    background: linear-gradient(to right, #733f38, #a7604e, #733f38);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+}
+
+.branch {
+    width: 100px;
+    height: 12px;
+    background: #80483f;
+    position: absolute;
+    transform: rotate(-30deg);
+    bottom: 145px;
+    left: 35%;
+    border-radius: 20px;
+}
+
+.heart-cloud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 340px;
+    height: 230px;
+}
+
+.mini-heart {
+    position: absolute;
+    font-size: 24px;
+    animation: floatHeart 3s infinite ease-in-out;
+}
+
+@keyframes floatHeart {
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(5deg);
+    }
+}
+
+
+/* =========================
+   FOTO
+========================= */
+
+.photos {
+    max-width: 900px;
+    margin: 20px auto 50px;
+    padding: 0 20px;
+}
+
+.photo-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #9b626d;
+}
+
+.photo-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    background: rgba(255,255,255,.75);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.photo {
+    width: 210px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: .4s;
+}
+
+.photo:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(120,50,60,.2);
+}
+
+
+/* =========================
+   SURAT
+========================= */
+
+.message {
+    max-width: 750px;
+    margin: auto;
+    padding: 40px 50px;
+    background: rgba(255,255,255,.9);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(120,60,70,.1);
+}
+
+.message-label {
+    font-size: 11px;
+    color: #ba6476;
+    margin-bottom: 15px;
+}
+
+.message h2 {
+    font-family: "DM Serif Display", serif;
+    color: #743d4d;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.message p {
+    font-size: 12px;
+    line-height: 2;
+    color: #85656d;
+}
+
+.signature {
+    font-size: 19px;
+    font-weight: bold;
+    color: #9e4359;
+    margin-top: 18px;
+}
+
+
+/* BUTTON */
+
+.gift {
+    display: block;
+    margin: 25px auto;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    background: #b94662;
+    color: white;
+    font-family: serif;
+    cursor: pointer;
+    box-shadow: 0 7px 20px rgba(185,70,98,.3);
+    transition: .3s;
+}
+
+.gift:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   JATUHAN HATI
+========================= */
+
+.falling {
+    position: fixed;
+    top: -30px;
+    pointer-events: none;
+    animation: fall linear forwards;
+    z-index: 10;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   RESPONSIVE HP
+========================= */
+
+@media(max-width:700px) {
+
+    .birthday {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+
+    .birthday-text {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .birthday h1 {
+        font-size: 45px;
+    }
+
+    .tree {
+        transform: scale(.8);
+        margin-top: -30px;
+    }
+
+    .message {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    .photo {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HALAMAN AWAL
+========================= -->
+
+<section class="opening" id="opening">
+
+    <div class="opening-text">
+        a little something, for dinda anindia gianto 
+    </div>
+
+    <div class="heart-button" onclick="openBirthday()"></div>
+
+    <div class="opening-bottom">
+        PULL & RELEASE
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     HALAMAN UTAMA
+========================= -->
+
+<section class="main" id="main">
+
+    <div class="nav">
+        Blooming Wishes
+    </div>
+
+
+    <!-- BIRTHDAY -->
+
+    <section class="birthday">
+
+        <div class="birthday-text">
+
+            <div class="small-title">
+                and... make it count
+            </div>
+
+            <h1>
+                Happy<br>
+                Birthday
+            </h1>
+
+            <p>
+                here's to a year that blooms
+            </p>
+
+        </div>
+
+
+        <!-- POHON HATI -->
+
+        <div class="tree">
+
+            <div class="heart-cloud" id="heartCloud"></div>
+
+            <div class="branch"></div>
+
+            <div class="trunk"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOTO -->
+
+    <section class="photos">
+
+        <div class="photo-title">
+            memories with you ❤️
+        </div>
+
+        <div class="photo-list">
+
+            <img src="D2.png" class="photo">
+
+            <img src="D.png" class="photo">
+
+            <img src="D4.jpeg" class="photo">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- SURAT -->
+
+    <section class="message">
+
+        <div class="message-label">
+            ❤️ A Message for DINDA ANINDIA GIANTO
+        </div>
+
+        <h2>
+            Selamat Ulang Tahun DINDA ANINDIA GIANTO
+        </h2>
+
+        <p>
+            Nggak kerasa ya sudah berjalan sejauh ini.
+        </p>
+
+        <p>
+            Semoga di usia yang baru kamu makin bahagia,
+            makin kuat, dan selalu dikelilingi orang-orang
+            yang menyayangimu.
+        </p>
+
+        <p>
+            Semoga semua impian dan harapan kamu
+            bisa tercapai satu per satu.
+        </p>
+
+        <p>
+            Jangan pernah lupa untuk tersenyum,
+            karena senyummu selalu punya arti.
+        </p>
+
+        <p>
+            Aku cuma pengen lihat kamu selalu baik-baik aja.
+        </p>
+
+        <div class="signature">
+            - Dari seseorang ❤️ -
+        </div>
+
+    </section>
+
+
+    <button class="gift" onclick="sendGift()">
+        🎁 Send a Gift
+    </button>
+
+</section>
+
+
+
+<script>
+
+/* =========================
+   BUKA WEBSITE
+========================= */
+
+function openBirthday() {
+
+    document.getElementById("opening").style.display = "none";
+
+    document.getElementById("main").classList.add("active");
+
+    createHeartTree();
+
+    setInterval(createFallingHeart, 500);
+}
+
+
+
+/* =========================
+   POHON DARI HATI
+========================= */
+
+function createHeartTree() {
+
+    const cloud = document.getElementById("heartCloud");
+
+    const hearts = [
+        [130,20],[170,15],[210,25],
+        [80,45],[120,50],[160,45],
+        [200,50],[245,55],[280,70],
+        [50,80],[95,80],[140,75],
+        [185,80],[230,90],[270,100],
+        [75,115],[115,110],[155,120],
+        [200,115],[245,125],
+        [105,150],[145,145],[185,150],
+        [225,145]
+    ];
+
+    hearts.forEach((pos, index) => {
+
+        const heart = document.createElement("span");
+
+        heart.className = "mini-heart";
+
+        heart.innerHTML =
+            Math.random() > .5 ? "❤️" : "💗";
+
+        heart.style.left = pos[0] + "px";
+
+        heart.style.top = pos[1] + "px";
+
+        heart.style.animationDelay =
+            (index * .08) + "s";
+
+        heart.style.fontSize =
+            (18 + Math.random() * 12) + "px";
+
+        cloud.appendChild(heart);
+
+    });
+}
+
+
+
+/* =========================
+   HUJAN HATI
+========================= */
+
+function createFallingHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "falling";
+
+    const symbols = [
+        "❤️",
+        "💗",
+        "💖",
+        "🌸",
+        "🌷"
+    ];
+
+    heart.innerHTML =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 16) + "px";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 9000);
+}
+
+
+
+/* =========================
+   BUTTON HADIAH
+========================= */
+
+function sendGift() {
+
+    alert(
+        "💗 Hadiah kecil untuk kamu!\n\n" +
+        "Semoga kamu selalu bahagia ❤️"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
